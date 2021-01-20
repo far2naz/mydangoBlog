@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    ArticlesDetiles
+{% endblock %}
+
+{% block content %}
+<div class="article-detail">
+   <div class="article">
+
+      <h1 dir="rtl">{{article.title}}</h1>
+      <img src="{{ article.imagwe.url }}" alt="">
+      <p dir="rtl" align="right">{{article.body}}</p>
+      <img src="{{ article.imagwe2.url }}" alt="">
+      <p dir="rtl" align="right">{{article.body2}}</p>
+
+      <p class="author">{{article.date}} Added by : {{article.author}}</p>
+
+   </div>
+</div>
+{% endblock %}

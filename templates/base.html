@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block title %}
+        Articles
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'st.css' %}">
+  </head>
+  <body>
+    <header>
+    <p>
+      <a class="highlight" href="{% url 'articles:list' %}">Article List</a>
+      {% if user.is_authenticated%}
+      <a class="highlight" href="{% url 'articles:create' %}">Create Article</a>
+      {% endif %}
+      <nav> <ul>
+        {% if user.is_authenticated%}
+
+                  <form class="logout-link" action="{% url 'accunts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="logout"> Logout</button>
+                  </form>
+              
+
+      {% else %}
+          <li> <a href="{% url 'accunts:login' %}">Login</a></li>
+          <li><a href="{% url 'accunts:signup' %}">Signup</a> </li></p>
+
+     {% endif %}
+    </ul>
+    </nav>
+  </header>
+  <div class="wrapper">
+      {% block content %}
+
+      {% endblock %}
+  </div>
+</body>
+</html>

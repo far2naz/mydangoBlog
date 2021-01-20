@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Sign up
+{% endblock %}
+
+{% block content %}
+ <div class="article-create">
+      <h1> Sign up</h1>
+      <form class="side_form" action="{% url 'accunts:signup' %}" method="post">
+      {{ form}}
+      {% csrf_token %}
+      <input type="submit" name="sing up" value="Sign up">
+      </form>
+ </div>
+
+{% endblock %}

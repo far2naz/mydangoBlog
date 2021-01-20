@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+  Create your articles
+{% endblock %}
+
+{% block content %}
+  <div class="article-create">
+       <h1>Create your articles</h1>
+       <form class="side_form" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+       {{ form}}
+      {% csrf_token %}
+       <input type="submit" name="create" value="create">
+       </form>
+
+  </div>
+<script src="{% static 'slugify.js'%}"></script>
+{% endblock %}
